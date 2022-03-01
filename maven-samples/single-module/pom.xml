@@ -47,3 +47,46 @@
         </execution>
     </executions>
 </plugin>
+    <settings>
+    <servers>
+        <server>
+            <id>github</id>
+            <username><<em>your Github username</em>></username>
+            <password><<em>your Github password</em>></password>
+        </server>
+    </servers>
+</settings>
+<settings>
+    <servers> 
+        <server>
+            <id>github</id>
+            <password><<em>YOUR GitHub OAUTH-TOKEN></em></password>
+        </server>
+    </servers>
+</settings>
+<plugin>
+    <groupId>com.github.github</groupId>
+    <artifactId>site-maven-plugin</artifactId>
+    <version>0.12</version>
+    <configuration>
+        <message>Maven artifacts for ${project.version}</message>
+        <noJekyll>true</noJekyll>
+        <outputDirectory>${project.build.directory}</outputDirectory>
+        <branch>refs/heads/<<em>Branch-Name</em>></branch>
+        <includes>
+            <include>**/*</include>
+        </includes>
+        <merge>true</merge>
+        <repositoryName><<em>Repo-Name</em>></repositoryName>
+        <repositoryOwner><<em>Repo-Owner</em>></repositoryOwner>
+        <server>github</server>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>site</goal>
+            </goals>
+            <phase>deploy</phase>
+        </execution>
+    </executions>
+</plugin>
